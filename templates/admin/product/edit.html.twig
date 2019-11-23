@@ -1,0 +1,40 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Düzenle{% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="content-wrapper">
+    <div class="page-title">
+        <div>
+            <h1>
+                Kategori Düzenle
+
+            </h1>
+
+        </div>
+        <div>
+            <ul class="breadcrumb">
+                <li><i class="fa fa-home fa-lg"></i></li>
+                <li><a href="#">Kategori Düzenleme</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+
+<div class="box">
+    {{ include('admin/messages.html.twig') }}
+</div>
+
+    <h1>Edit Product</h1>
+
+
+    {{ include('admin/product/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_product_index') }}">Listeye geri dönmek için tıklayınız.</a>
+
+    {{ include('admin/product/_delete_form.html.twig') }}
+{% endblock %}

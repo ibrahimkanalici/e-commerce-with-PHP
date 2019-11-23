@@ -1,0 +1,128 @@
+
+<form class="form-horizontal" method="post">
+    <div class="form-group">
+        <label class="control-label col-md-3">Kategorisi</label>
+
+        <div class="col-md-2">
+
+            <select name="product[category_id]" class="form-control">
+                    <option value="{{ product.id }}">{{ product.title }}</option>
+
+
+                    <option value="0">Ana Kategori</option>
+
+                {%  for cat in catlist %}
+                    <option value="{{ cat.id }}">{{ cat.title }}</option>
+                {% endfor %}
+
+            </select>
+        </div>
+
+
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3">Title(Başlık)</label>
+        <div class="col-md-5">
+            <input type="text" class="form-control col-md-5" name="product[title]" value="{{ product.title }}" placeholder="Title">
+        </div>
+    </div>
+    <div class="form-group">
+        <label type="text" class="control-label col-md-3">Keywords(Anahtar Kelime)</label>
+        <div class="col-md-5">
+            <input type="text" class="form-control col-md-5" name="product[keywords]" value="{{ product.keywords }}" placeholder="Keywords">
+
+
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label type="text" class="control-label col-md-3">Alış Fiyatı</label>
+        <div class="col-md-5">
+            <input type="text" class="form-control col-md-5" name="product[pprice]" value="{{ product.pprice }}" placeholder="Keywords">
+
+
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label type="text" class="control-label col-md-3">Satış Fiyatı</label>
+        <div class="col-md-5">
+            <input type="text" class="form-control col-md-5" name="product[sprice]" value="{{ product.sprice }}" placeholder="Keywords">
+
+
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label type="text" class="control-label col-md-3">Miktar</label>
+        <div class="col-md-5">
+            <input type="text" class="form-control col-md-5" name="product[amount]" value="{{ product.amount }}" placeholder="Keywords">
+
+
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label type="text" class="control-label col-md-3">Description(Kısa Açıklama)</label>
+        <div class="col-md-5">
+            <input type="text" class="form-control col-md-5" name="product[description]" value="{{ product.description }}" placeholder="Description">
+
+
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label class="control-label col-md-3">Aktif Durumu</label>
+        <div class="col-md-1">
+            <select name="product[status]" class="form-control">
+                {{ product.status }}
+                <option>True</option>
+                <option selected>False</option>
+
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label type="text" class="control-label col-md-3">Detay</label>
+        <div class="col-md-5">
+            <textarea id="editor" name="product[detail]" rows="10" cols="100">{{ product.detail }}</textarea>
+
+        </div>
+
+    </div>
+
+
+
+
+    </div>
+    <div class="form-group">
+        <div class="col-md-8 col-md-offset-3">
+
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-3">
+                    <input  class="btn btn-default icon-btn" type="submit" value="KAYDET">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

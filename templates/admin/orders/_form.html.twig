@@ -1,0 +1,93 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}  Sepetim {% endblock %}
+{% block body %}
+    <div style="width:500px; padding: 10px; margin:0px auto;">
+    <br>	<br><br><h1><b>ALICI BİLGİLERİ</b></h1><br>
+    <form class="form-horizontal" name="order" action="{{ path('orders_new') }}" method="post">
+        <fieldset>
+            <label class="col-sm-2 control-label">Ödenecek Tutar</label>
+            <div class="control-group" col-sm5>
+                <input type="text" name="orders[amount]" value="{{ total }}" placeholder="name" class="input-xlarge"/>
+            </div>
+            <div class="clearfix">
+                <b> <h3>Kişisel Bilgiler</h3></b><br>
+                <label for="name"><span>Alıcı adı/Soyadı:</span></label>
+                <div class="input">
+                    <input tabindex="1" size="18" id="name" name="orders[name]" type="text" value="{{ app.user.name }}" class="input-xlarge" placeholder="Adınızı ve Soyadınız Giriniz">
+                </div>
+            </div>
+
+            <br>	<div class="clearfix">
+                <label for="email"><span>Alıcı Telefonu:</span></label>
+                <div class="input">
+                    <input tabindex="2" size="25" id="" name="orders[phone]" type="text" value="{{ app.user.phone }}" class="input-xlarge" placeholder="Telefon Numaranızı Giriniz">
+                </div><br>
+                <b> <h3>Kargo Adresi Bilgileri</h3></b><br>
+            <div class="clearfix">
+                <label for="email"><span>Şehir:</span></label>
+                <div class="input">
+                    <input tabindex="2" size="25" id="" name="orders[city]" type="text" value="{{ app.user.city }}" class="input-xlarge" placeholder="Şehirinizi giriniz">
+                </div>
+            </div>
+            <br>	<div class="clearfix">
+                <label for="message"><span>Açık adres:</span></label>
+                <div class="input">
+                    <textarea tabindex="3" class="input-xlarge" id="message" name="orders[address]" rows="7" value="{{ app.user.address }}" placeholder="Adresinizi giriniz"></textarea>
+                </div>
+            </div><hr>
+
+                <b> <h3>Ödeme Bilgileri</h3></b><br>
+            <div class="clearfix">
+                <label for="email"><span>Kredi kart no:</span></label>
+                <div class="input">
+                    <input tabindex="2" size="25" id="" name="kart_no" type="text" value="" class="input-xlarge" placeholder="kart no giriniz">
+                </div>
+            </div>
+            <div class="clearfix">
+                <label for="email"><span>kart SKT:</span></label>
+                <div class="input">
+                    <input tabindex="2" size="25" id="" name="kart_skt" type="text" value="" class="input-xlarge" placeholder="kart skt giriniz">
+                </div>
+            </div>
+            <div class="clearfix">
+                <label for="email"><span>Cvv No:</span></label>
+                <div class="input">
+                    <input tabindex="2" size="25" id="" name="cvv" type="text" value="" class="input-xlarge" placeholder="cvv no giriniz">
+                </div>
+            </div>
+            <hr>
+            <div class="clearfix">
+                <label for="email"><span>TUTAR:</span></label>
+                <div class="input">
+                    <input tabindex="2" size="25" id="" name="tutar" readonly type="text" value="{{ app.user.total }}" class="input-xlarge" >
+                </div>
+            </div>
+
+            <div class="clearfix">
+                <label for="message"><span>Açıklama:</span></label>
+                <div class="input">
+                    <textarea tabindex="3" class="input-xlarge" id="message" name="aciklama" rows="7" placeholder="Açıklama giriniz"></textarea>
+                </div>
+            </div>
+                <input type="hidden" name="token" value="{{ csrf_token('form-order') }}"/>
+
+            <br>	<div class="actions">
+                <button tabindex="3" type="submit" class="btn btn-inverse">Alışverişi tamamla</button><br>
+            </div>
+            </div>
+        </fieldset><br>
+    </form>
+
+
+
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}

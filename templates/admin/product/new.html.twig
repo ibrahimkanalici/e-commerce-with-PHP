@@ -1,0 +1,30 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Product Ekleme{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="page-title">
+        <div>
+            <h1>
+                Product Ekleme
+
+            </h1>
+
+        </div>
+        <div>
+            <ul class="breadcrumb">
+                <li><i class="fa fa-home fa-lg"></i></li>
+                <li><a href="#">Product Ekleme</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h3 class="card-title">Kategori Tablosu</h3>
+
+    {{ include('admin/product/_form.html.twig') }}
+
+    <a href="{{ path('admin_product_index') }}">Listeye geri dönmek için tıklayınız.</a>
+
+    </div>
+{% endblock %}

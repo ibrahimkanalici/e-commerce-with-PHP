@@ -1,0 +1,30 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Kategori Düzenle{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="page-title">
+        <div>
+            <h1>
+                Kategori Düzenle
+
+            </h1>
+
+        </div>
+        <div>
+            <ul class="breadcrumb">
+                <li><i class="fa fa-home fa-lg"></i></li>
+                <li><a href="#">Kategori Düzenleme</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+        <h3 class="card-title">Kategori Tablosu</h3>
+
+        {{ include('admin/category/_form.html.twig', {'button_label': 'Update'}) }}
+
+        <a href="{{ path('admin_category_index') }}">Listeye geri dönmek için tıklayınız.</a>
+
+        {{ include('admin/category/_delete_form.html.twig') }}
+        {% endblock %}

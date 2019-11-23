@@ -1,0 +1,64 @@
+
+<div class="content">
+    <!--banner-bottom-->
+
+    <!--banner-bottom-->
+    <!--new-arrivals-->
+    <div class="product-agile">
+        <div class="container">
+            <h3 class="tittle1"> ÜRÜNLER </h3>
+            <div class="slider">
+                <div class="col-sm-9 padding-right">
+                    <div class="features_items"><!--features_items-->
+                        <div class="grid-arr">
+                            <div class="grid-arrival">
+                                <figure>
+                                    {% for rs in producte %}
+
+                                        <div class="col-sm-4">
+                                            <ul class="thumbnail">
+                                                <div class="product-image-wrapper">
+                                                    <div class="single-products">
+                                                        <div class="productinfo text-center">
+                                                            <a href="{{ path('product_detail', {'id': rs.id}) }}">
+                                                                <img src="{{ asset('uploads') }}/images/{{ rs.image }}" width="400" height="200" alt="" />
+                                                            </a>
+                                                            <h2>{{ rs.sprice }} TL</h2>
+                                                            <p>{{ rs.title }}</p>
+                                                            <br>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ul>
+                                        </div>
+
+                                    {% endfor %}
+                                </figure>
+                            </div>
+
+                        </div>
+
+
+
+                    </div><!--features_items-->
+
+
+                </div>
+            </div>
+        </div>
+        </section>
+
+
+
+
+
+
+    </div><!--features_items-->
+
+
+</div>
+</div>
+</div>
+</section>

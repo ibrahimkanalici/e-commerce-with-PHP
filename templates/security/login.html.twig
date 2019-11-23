@@ -1,0 +1,69 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} Login - {{ data[0].title }}!{% endblock %}
+{% block keywords %} {{ data[0].keywords }}{% endblock %}
+{% block description %} {{ data[0].description }}!{% endblock %}
+
+{% block body %}
+    <hr class="soften">
+    <div class="row">
+    <div class="span12">
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <div align="center">
+        <p><h2>Kullanıcı adı:</h2> <h4>{{ app.user.name }}</h4></p>
+    </div>
+    <div align="center">
+        <br> <p><h2> Kullanıcı email:</h2> <h4>{{ app.user.email }}</h4></p>
+    </div>
+
+    <div class="contact-top heading">
+
+        <div class="brand-w3l">
+            <h3>UYE ISLEMLERİ</h3>
+            <ul>
+                <li><a href="{{ path ('userpanel') }}">Bilgilerim</a></li>
+                <li><a href="{{ path ('order_detail_index') }}">Siparislerim</a></li>
+
+                <li><a href="{{ path ('app_logout') }}">Çıkış</a></li>
+            </ul>
+        </div>
+    </div>
+    {% else %}
+
+    <form method="post">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <div class="login">
+            <div class="main-agileits">
+                <div class="form-w3agile">
+                    <h3>Kullanıcı Girişi</h3>
+                    <form action="#" method="post">
+                        <div class="key">
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="key">
+                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Şifre" required>
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                        <button class="btn btn-lg btn-primary" type="submit">
+                            Giriş Yap
+                        </button>
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
+                    </form>
+                    <a href="{{ path('new_user') }}" class="btn btn-lg btn-primary"> Üye Ol </a>
+
+                    {% endif %}
+
+                </div>
+                <div class="row"></div>
+            </div>
+        </div>
+{% endblock %}

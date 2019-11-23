@@ -1,0 +1,28 @@
+{% for label, flashes in app.session.flashbag.all %}
+    {% for flash in flashes %}
+        {% if (label == 'success') %}
+
+            <div class="alert alert-dismissible alert-success">
+                <button class="close" type="button" data-dismiss="alert">×</button><strong>Süper!</strong> Kayıt Güncelleme<a class="alert-link" href="#"> Başarıyla Tamamlandı</a>.
+                {{ flash }}
+            </div>
+
+
+        {% elseif (label == 'error') %}
+            <div class="alert alert-danger">
+                <strong>Error!</strong> {{ flash }}
+            </div>
+
+        {% elseif (label == 'info') %}
+            <div class="alert alert-danger">
+                <strong>Error!</strong> {{ flash }}
+            </div>
+
+        {% elseif (label == 'warning') %}
+            <div class="alert alert-danger">
+                <strong>Error!</strong> {{ flash }}
+            </div>
+
+        {% endif %}
+    {% endfor %}
+{% endfor %}

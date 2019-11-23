@@ -1,0 +1,187 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} Üye Ol - {{ data[0].title }}!{% endblock %}
+
+{% block body %}
+<hr class="soften">
+<div class="row">
+    <div class="span12">
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <h4>Zaten Üyesiniz</h4><br>
+    <div align="center">
+        <p><h2>Kullanıcı adı:</h2> <h4>{{ app.user.name }}</h4></p>
+    </div>
+    <div align="center">
+   <br> <p><h2> Kullanıcı email:</h2> <h4>{{ app.user.email }}</h4></p>
+    </div>
+    <div align="center">
+        <br> <p><h2> Kullanıcı tipi:</h2> <h4>{% for item in app.user.roles %}</h4></p>
+        {{ item }}<br>
+        {% endfor %}
+        <hr>
+    </div>
+
+{% else %}
+
+    <div align="center">
+        <p><h1>Kayıt Formu</h1></p>
+    </div>
+
+    <form class="form-horizontal" name="user" method="post">
+        <div class="form-group">
+            <label class="control-label col-md-3">Ad Soyad:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="user[name]" placeholder="Ad Soyad Giriniz">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Email:</label>
+            <div class="col-md-5">
+                <input type="email" class="form-control col-md-5" id="email" name="user[email]" placeholder="E-mail Adresi Giriniz">
+            </div>
+        </div>
+        <div class="form-group">
+            <label type="password" class="control-label col-md-3">Şifre:</label>
+            <div class="col-md-5">
+                <input type="password" class="form-control col-md-5" name="user[password]" placeholder="Şifre Giriniz">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3">Adres:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control col-md-5" name="user[address]" placeholder="Adresi Giriniz">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3">Şehir:</label>
+            <div class="col-md-5">
+            <select name="user[city]">
+                <option value="İstanbul">İstanbul</option>
+                <option value="Ankara">Ankara</option>
+                <option value="İzmir">İzmir</option>
+                <option value="Adana">Adana</option>
+                <option value="Adıyaman">Adıyaman</option>
+                <option value="Afyonkarahisar">Afyonkarahisar</option>
+                <option value="Ağrı">Ağrı</option>
+                <option value="Aksaray">Aksaray</option>
+                <option value="Amasya">Amasya</option>
+                <option value="Antalya">Antalya</option>
+                <option value="Ardahan">Ardahan</option>
+                <option value="Artvin">Artvin</option>
+                <option value="Aydın">Aydın</option>
+                <option value="Balıkesir">Balıkesir</option>
+                <option value="Bartın">Bartın</option>
+                <option value="Batman">Batman</option>
+                <option value="Bayburt">Bayburt</option>
+                <option value="Bilecik">Bilecik</option>
+                <option value="Bingöl">Bingöl</option>
+                <option value="Bitlis">Bitlis</option>
+                <option value="Bolu">Bolu</option>
+                <option value="Burdur">Burdur</option>
+                <option value="Bursa">Bursa</option>
+                <option value="Çanakkale">Çanakkale</option>
+                <option value="Çankırı">Çankırı</option>
+                <option value="Çorum">Çorum</option>
+                <option value="Denizli">Denizli</option>
+                <option value="Diyarbakır">Diyarbakır</option>
+                <option value="Düzce">Düzce</option>
+                <option value="Edirne">Edirne</option>
+                <option value="Elazığ">Elazığ</option>
+                <option value="Erzincan">Erzincan</option>
+                <option value="Erzurum">Erzurum</option>
+                <option value="Eskişehir">Eskişehir</option>
+                <option value="Gaziantep">Gaziantep</option>
+                <option value="Giresun">Giresun</option>
+                <option value="Gümüşhane">Gümüşhane</option>
+                <option value="Hakkâri">Hakkâri</option>
+                <option value="Hatay">Hatay</option>
+                <option value="Iğdır">Iğdır</option>
+                <option value="Isparta">Isparta</option>
+                <option value="Kahramanmaraş">Kahramanmaraş</option>
+                <option value="Karabük">Karabük</option>
+                <option value="Karaman">Karaman</option>
+                <option value="Kars">Kars</option>
+                <option value="Kastamonu">Kastamonu</option>
+                <option value="Kayseri">Kayseri</option>
+                <option value="Kırıkkale">Kırıkkale</option>
+                <option value="Kırklareli">Kırklareli</option>
+                <option value="Kırşehir">Kırşehir</option>
+                <option value="Kilis">Kilis</option>
+                <option value="Kocaeli">Kocaeli</option>
+                <option value="Konya">Konya</option>
+                <option value="Kütahya">Kütahya</option>
+                <option value="Malatya">Malatya</option>
+                <option value="Manisa">Manisa</option>
+                <option value="Mardin">Mardin</option>
+                <option value="Mersin">Mersin</option>
+                <option value="Muğla">Muğla</option>
+                <option value="Muş">Muş</option>
+                <option value="Nevşehir">Nevşehir</option>
+                <option value="Niğde">Niğde</option>
+                <option value="Ordu">Ordu</option>
+                <option value="Osmaniye">Osmaniye</option>
+                <option value="Rize">Rize</option>
+                <option value="Sakarya">Sakarya</option>
+                <option value="Samsun">Samsun</option>
+                <option value="Siirt">Siirt</option>
+                <option value="Sinop">Sinop</option>
+                <option value="Sivas">Sivas</option>
+                <option value="Şırnak">Şırnak</option>
+                <option value="Tekirdağ">Tekirdağ</option>
+                <option value="Tokat">Tokat</option>
+                <option value="Trabzon">Trabzon</option>
+                <option value="Tunceli">Tunceli</option>
+                <option value="Şanlıurfa">Şanlıurfa</option>
+                <option value="Uşak">Uşak</option>
+                <option value="Van">Van</option>
+                <option value="Yalova">Yalova</option>
+                <option value="Yozgat">Yozgat</option>
+                <option value="Zonguldak">Zonguldak</option>
+            </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3">Telefon:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control col-md-5" name="user[phone]" placeholder="Telefon Numarası Giriniz">
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-8 col-md-offset-3">
+
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-3">
+                        <input type="hidden" class="form-control col-md-5" name="user[roles]" value="ROLE_USER">
+
+                        <input type="hidden" name="token"
+                               value="{{ csrf_token('user-form') }}"
+                        >
+                        <input  class="btn btn-default icon-btn" type="submit" value="KAYDET">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+{% endif %}
+
+</div>
+    <div class="row"></div>
+</div>
+    </div>
+{% endblock %}

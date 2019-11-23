@@ -1,0 +1,41 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} İletişim {{ data[0].title }}!{% endblock %}
+{% block keywords %} {{ data[0].keywords }}{% endblock %}
+{% block description %} {{ data[0].description }}!{% endblock %}
+{% block body %}
+
+
+<div align="center">
+    <hr class="soften">
+    <div>
+        <h1>İletişim Bilgilerimiz</h1>
+    </div>
+    <hr class="soften">
+    <div class="row">
+        <div class="span12">
+            <p>
+                {{ data[0].contact|raw }}
+            </p>
+            <div class="row"></div>
+        </div>
+    </div>
+
+
+
+    <div class="mail-bottom">
+        <h4>Bize Yazın</h4>
+        {{ include('messages.html.twig') }}
+        <form action="#" method="post">
+            <input type="text" name="messages[name]" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'name';}" required="">
+            <input type="email" name="messages[email]" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'email';}" required="">
+            <input type="text" name="messages[subject]" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'subject';}" required="">
+            <textarea onfocus="this.value = '';" name="messages[message]" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+            <input type="hidden" name="token" value="{{ csrf_token('form-message') }}"/>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Clear">
+
+        </form>
+    </div>
+</div>
+{% endblock %}

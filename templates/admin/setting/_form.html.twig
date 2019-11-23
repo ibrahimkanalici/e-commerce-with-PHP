@@ -1,0 +1,165 @@
+{{ include ('admin/messages.html.twig') }}
+
+<form class="form-horizontal" method="post">
+    <div class="col-lg-12">
+        <h2 id="nav-tabs">Tabs</h2>
+        <div class="bs-component">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Genel Bilgiler</a></li>
+                <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Email Server</a></li>
+                <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">İletişim</a></li>
+                <li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Hakkımızda</a></li>
+                <li class=""><a href="#tab_5" data-toggle="tab" aria-expanded="false">Referans</a></li>
+
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade active in" id="tab_1">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Title(Başlık)</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control col-md-5" name="setting[title]" value="{{ setting.title }}" placeholder="Title">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label type="text" class="control-label col-md-3">Keywords(Anahtar Kelime)</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control col-md-5" name="setting[keywords]" value="{{ setting.keywords }}" placeholder="Anahtar Kelime">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label type="text" class="control-label col-md-3">Description(Kısa Açıklama)</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control col-md-5" name="setting[description]" value="{{ setting.description }}" placeholder="Açıklama">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label type="text" class="control-label col-md-3">Firma Adı</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control col-md-5" name="setting[company]" value="{{ setting.company }}" placeholder="Firma adı">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label type="text" class="control-label col-md-3">Adresi</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control col-md-5" name="setting[address]" value="{{ setting.address }}" placeholder="Adres">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label type="text" class="control-label col-md-3">Fax</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control col-md-5" name="setting[fax]" value="{{ setting.fax }}" placeholder="Fax">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="tab-pane fade" id="tab_2">
+
+                    <div class="form-group">
+                        <label type="text" class="control-label col-md-3">Email</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control col-md-5" name="setting[smtpemail]" value="{{ setting.smtpemail }}" placeholder="E-mail">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label type="text" class="control-label col-md-3">Email Şifre</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control col-md-5" name="setting[smtppassword]" value="{{ setting.smtppassword }}" placeholder="Şifre">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label type="text" class="control-label col-md-3">SMTP Port</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control col-md-5" name="setting[smtpport]" value="{{ setting.smtpport }}" placeholder="Port">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="tab_3">
+                    <div class="form-group">
+                        <label type="text" class="control-label col-md-3">İletişim</label>
+                        <div class="col-md-5">
+                            <textarea id="contact" name="setting[contact]" rows="10" cols="100">{{ setting.contact }}</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="tab_4">
+                    <div class="form-group">
+                        <label type="text" class="control-label col-md-3">Hakkımızda</label>
+                        <div class="col-md-5">
+                            <textarea id="aboutus" name="setting[aboutus]" rows="10" cols="100">{{ setting.aboutus }}</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="tab_5">
+                    <div class="form-group">
+                        <label type="text" class="control-label col-md-3">Referanslar</label>
+                        <div class="col-md-5">
+                            <textarea id="referances" name="setting[referances]" rows="10" cols="100">{{ setting.referances }}</textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    </div>
+    <div class="form-group">
+        <div class="col-md-8 col-md-offset-3">
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-3">
+                    <input  class="btn btn-default icon-btn" type="submit" value="KAYDET">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</form>
+
+
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#contact' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#aboutus' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#referances' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

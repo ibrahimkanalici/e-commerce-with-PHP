@@ -1,0 +1,97 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Üye Ekleme{% endblock %}
+
+{% block content %}
+    <div class="content-wrapper">
+        <div class="page-title">
+            <div>
+                <h1>Üye Ekleme</h1>
+
+            </div>
+            <div>
+                <ul class="breadcrumb">
+                    <li><a href="#"> <i class="fa fa-home fa-lg"></i>Home</a></li>
+                    <li><a href="#">Üye Ekleme</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="card">
+                <h3 class="card-title">Yeni Üye Ekleme</h3>
+                <div class="card-body">
+                    <form class="form-horizontal" name="user" method="post">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Ad Soyad</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" name="user[name]" placeholder="Ad Soyad Giriniz">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Email</label>
+                            <div class="col-md-5">
+                                <input type="email" class="form-control col-md-5" name="user[email]" placeholder="E-mail Adresi Giriniz">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label type="password" class="control-label col-md-3">Şifre</label>
+                            <div class="col-md-5">
+                                <input type="password" class="form-control col-md-5" name="user[password]" placeholder="Şifre Giriniz">
+
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Aktif Durumu</label>
+                            <div class="col-md-1">
+                                <select name="user[status]" class="form-control">
+                                    <option>True</option>
+                                    <option>False</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Türü</label>
+                            <div class="col-md-1">
+                                <select name="user[roles]" class="form-control">
+                                    <option>ROLE_ADMIN</option>
+                                    <option>ROLE_USER</option>
+                                    <option>ROLE_POWER</option>
+                                    <option>ROLE_MEMBER</option>
+                                </select>
+                            </div>
+
+
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-3">
+
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-3">
+                                        <input  class="btn btn-default icon-btn" type="submit" value="KAYDET">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

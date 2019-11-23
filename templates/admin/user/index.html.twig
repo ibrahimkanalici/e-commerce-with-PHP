@@ -1,0 +1,63 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Üye Listesi{% endblock %}
+
+{% block content %}
+    <div class="content-wrapper">
+        <div class="page-title">
+            <div>
+                <h1>
+                    Üye Listesi
+                    <small><a class="btn btn-warning" href="{{ path('admin_user_new') }}">Üye Ekleme</a></small>
+                </h1>
+
+            </div>
+            <div>
+                <ul class="breadcrumb">
+                    <li><i class="fa fa-home fa-lg"></i></li>
+                    <li><a href="#">Blank Page</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <h3 class="card-title">Üye Tablosu</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Adı Soyadı</th>
+                    <th>Email</th>
+                    <th>Durum</th>
+                    <th>Türü</th>
+                    <th>Düzenle</th>
+                    <th>Sil</th>
+                </tr>
+                </thead>
+                {% for user in users %}
+                    <tr>
+                        <td>#</td>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.status }}</td>
+                        <td>
+
+                            {% for item in user.roles %}
+                                <label class="badge badge-success">
+                                    {{ item }}
+                                </label>
+                            {% endfor %}
+
+                        </td>
+                        <td>
+                            <a href="{{ path('admin_user_edit',{'id': user.id}) }}" class="btn btn-icon waves-effect waves-light btn-warning m-b-5"><i class="ti-pencil"></i></a>
+                            <a href="{{ path('admin_user_delete',{'id': user.id}) }}" onclick="return confirm('Silmek istediğinize eminmisiniz!');" class="btn btn-icon waves-effect waves-light btn-danger m-b-5"><i class="fa fa-remove"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

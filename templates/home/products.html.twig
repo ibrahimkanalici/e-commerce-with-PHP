@@ -1,0 +1,56 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}  {{ data[0].title }} {% endblock %}
+{% block keywords %} {{ data[0].keywords }} {% endblock %}
+{% block description %} {{ data[0].description }} {% endblock %}
+{% block body %}
+
+
+    <!--Products-->
+    <div class="product-agile">
+        <div class="container">
+            <h3 class="tittle1"> {{ data[0].title }}</h3>
+            <div class="slider">
+                <div class="callbacks_container">
+                    <ul class="rslides callbacks callbacks1" id="slider">
+                        {% for rs in products %}
+
+                            <div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+                                <div class="grid-arrival">
+                                    <figure>
+                                        <a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
+                                            <div class="grid-img">
+                                                <img src="{{ asset('uploads') }}/images/{{ rs.image }}" class="img-responsive" alt="">
+                                            </div>
+                                        </a>
+                                    </figure>
+                                </div>
+
+                                <div class="block">
+                                    <div class="starbox small ghosting"> </div>
+                                </div>
+                                <div class="women">
+                                   <p> <{{ rs.title }}</div>
+                                    <p> {{ rs.title }}</p>
+                                    <p><em class="item_price">{{ rs.sprice }}</em></p>
+                                    <a href="{{ path('product_detail',{'id': rs.id}) }}) }}" data-text="Add To Cart" class="my-cart-b item_add">Sepete Ekle</a>
+
+                                </div>
+                    </ul>
+                            </div>
+
+
+                {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--Products-->
+
+    <!--new-arrivals-->
+    </div>
+
+{% endblock %}
+

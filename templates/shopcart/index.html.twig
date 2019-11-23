@@ -1,0 +1,62 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}  Sepetim {% endblock %}
+{% block body %}
+
+
+    <div class="content">
+    <div class="product-agile">
+
+        <div class="container">
+
+
+
+            <h2><i class="glyphicon glyphicon-user"></i> SEPETİM </h2></div>
+        {{ include ('messages.html.twig') }}
+    </div>
+
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+
+    </div>
+
+    <div class="span12">
+        <div class="span12">
+            <div class="container">
+                <table class="table table-striped table-bordered bootstrap-datatable datatable responsive" style="width:1000px">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Ürün Adı</th>
+                        <th>Fiyat</th>
+                        <th>Adet</th>
+                        <th>Toplam Tutar</th>
+                        <th>İşlem</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for shopcart in shopcarts %}
+                        <tr>
+                            <td>{{ shopcart.id }}</td>
+                            <td>{{ shopcart.title }}</td>
+                            <td>{{ shopcart.sprice }}</td>
+                            <td>{{ shopcart.quantity }}</td>
+                            <td>{{ shopcart.quantity*shopcart.sprice}}</td>
+                            <td class="center">
+
+                                <a class="btn btn-danger" href="{{ path('shopcart_del', {'id': shopcart.id}) }}">
+                                    <i class="glyphicon glyphicon-trash icon-white"></i>
+                                    SİL
+                                </a>
+                            </td>
+                        </tr>
+
+
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{{ path('orders_new') }}" data-text="Add To Cart" class="my-cart-b item_add">Alışverişi xxxx</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

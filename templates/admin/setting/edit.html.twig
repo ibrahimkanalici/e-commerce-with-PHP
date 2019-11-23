@@ -1,0 +1,37 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Ayarlar{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="page-title">
+        <div>
+            <h1>
+                Edit Settings
+
+            </h1>
+
+        </div>
+        <div>
+            <ul class="breadcrumb">
+                <li><i class="fa fa-home fa-lg"></i></li>
+                <li><a href="#">Edit Settings</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
+
+        <div class="box">
+            {{ include('admin/messages.html.twig') }}
+        </div>
+
+        <h1>Genel Bilgiler</h1>
+
+
+        {{ include('admin/setting/_form.html.twig', {'button_label': 'Update'}) }}
+
+        <a href="{{ path('admin_setting_index') }}">Listeye geri dönmek için tıklayınız.</a>
+
+        {{ include('admin/setting/_delete_form.html.twig') }}
+        {% endblock %}
+
